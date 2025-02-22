@@ -1,3 +1,3 @@
-import Toast from './ToastManager';
+import toast from './ToastManager';
 import Toaster from './components/Toaster' 
-export { Toast, Toaster };
+export { toast, Toaster };
