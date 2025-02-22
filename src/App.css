@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+.toast-wrapper {
+  font-family: "DM Sans", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  z-index: 9999;
+}
+.toastParentContainer {
+  position: relative;
+  width: 300px;
+}
+.toast {
+  background-color: white;
+  width: 100%;
+  position: absolute;
+  border-radius: 10px;
+  transition: transform 0.23s ease-in-out, opacity 0.56s ease-in-out;
+  will-change: transform, opacity;
+  transform: translateY(var(--offset, 0));
+}
+.hideToast {
+  display: none;
+}
+.topOffset {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.bottomOffset {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.toastContainer {
+  width: auto;
+  display: flex;
+  padding: 18px;
+  border-radius: 10px;
+  align-items: center;
+  color: var(--text-color);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+.gradient {
+  background: linear-gradient(35deg, var(--from-color), var(--to-color));
+}
+.toast .message {
+  width: 100%;
+  font-size: 0.875rem;
+  word-break: break-all;
+  margin-left: 0.75rem;
+  text-align: left;
+}
+.toast .icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.toast .closeIcon {
+  cursor: pointer;
+  position: absolute;
+  top: -0.25rem;
+  right: -0.24rem;
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--icon-color);
+}
+.toast .icon::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--ripple-color);
+  border-radius: 100%;
+  animation: ripple 1.5s infinite;
+  z-index: -1;
+}
+.toast .icon svg, .toast .icon path {
+  width: 24px;
+  height: 24px;
+}
+.slideTopDown {
+  animation: slideIn 0.3s ease-in-out forwards;
+  opacity: 0;
+  transform: translateY(calc(-30px + var(--offset, 0)));
+}
+
+.slideBottomUp {
+  animation: slideUp 0.3s ease-in-out forwards;
+  opacity: 0;
+  transform: translateY(calc(30px + var(--offset, 0))); 
+}
+
+.toastExitUp {
+  animation: slideOut 0.3s ease-in-out forwards;
+  opacity: 1;
+  transform: translateY(calc(0px + var(--offset, 0)));
+}
+
+.toastExitDown {
+  animation: slideDown 0.3s ease-in-out forwards;
+  opacity: 1;
+  transform: translateY(calc(0px + var(--offset, 0)));
+}
+.exceedExit {
+  opacity: 0;
+}
+
+.top-right {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.top-left {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+}
+
+.bottom-right {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.bottom-left {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.top-center {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottom-center {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.spin {
+  transform-origin: center;
+  animation: spin 2s ease-in-out infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateY(var(--offset));
+    opacity: 1;
+  }
+  to {
+    transform: translateY(calc(-5px + var(--offset)));
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(calc(-30px + var(--offset)));
+    opacity: 0;
+  }
+  to {
+    transform: translateY(var(--offset));
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(calc(30px + var(--offset)));
+    opacity: 0;
+  }
+  to {
+    transform: translateY(var(--offset));
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(var(--offset));
+    opacity: 1;
+  }
+  to {
+    transform: translateY(calc(5px + var(--offset)));
+    opacity: 0;
+  }
+}
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@media (min-width: 480px) {
+  .toast .message {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .toast .message {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 350px) {
+  .toastParentContainer {
+    width: 90vw;
+  }
+}
