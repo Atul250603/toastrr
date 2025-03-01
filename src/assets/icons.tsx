@@ -52,9 +52,9 @@ const PromiseIcon: React.FC = () => (<svg viewBox="0 0 800 800" xmlns="http://ww
 
 const PromiseIconDark: React.FC = () => (<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
   <circle className="spin" cx="400" cy="400" fill="none"
-    r="200" stroke-width="70" stroke="#D1D4DA"
-    stroke-dasharray="1013 1400"
-    stroke-linecap="round" />
+    r="200" strokeWidth="70" stroke="#D1D4DA"
+    strokeDasharray="1013 1400"
+    strokeLinecap="round" />
   </svg>);
 
 export { Success, Error, Warning, Info, CloseIcon, PromiseIcon, PromiseIconDark };
