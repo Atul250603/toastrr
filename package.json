@@ -12,6 +12,7 @@
     "type": "git",
     "url": "https://github.com/Atul250603/toastrr"
   },
+  "homepage": "https://toastrr.vercel.app/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c --bundleConfigAsCjs",
