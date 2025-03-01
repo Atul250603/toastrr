@@ -45,12 +45,12 @@ function App () {
 Now you can import the Toast object and use it anywhere in the application to pop up a cool toast
 
 ```js
-import Toast from 'toastrr';
+import toast from 'toastrr';
 
 function Button() {
   return(
     <div>
-        <button onClick = { () => Toast.success('Hello, World!') }>
+        <button onClick = { () => toast.success('Hello, World!') }>
             Raise a toast
         </button>
     </div>
