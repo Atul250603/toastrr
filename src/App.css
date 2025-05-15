@@ -9,7 +9,7 @@
 }
 .toastParentContainer {
   position: relative;
-  width: 300px;
+  width: 320px;
 }
 .toast {
   background-color: white;
@@ -213,16 +213,6 @@
   100% {
     transform: scale(2);
     opacity: 0;
-  }
-}
-@media (min-width: 480px) {
-  .toast .message {
-    font-size: 1rem;
-  }
-}
-@media (min-width: 768px) {
-  .toast .message {
-    font-size: 1.125rem;
   }
 }
 @media (max-width: 350px) {
